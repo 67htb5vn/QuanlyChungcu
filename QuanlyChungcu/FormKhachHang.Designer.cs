@@ -29,12 +29,6 @@
         private void InitializeComponent()
         {
             groupBoxKhachHang1 = new GroupBox();
-            textBox6 = new TextBox();
-            textBox5 = new TextBox();
-            textBox4 = new TextBox();
-            textBox3 = new TextBox();
-            textBox2 = new TextBox();
-            textBox1 = new TextBox();
             groupBoxKhachHang2 = new GroupBox();
             datagridViewKhachHang = new DataGridView();
             buttonTimKiem = new Button();
@@ -42,67 +36,18 @@
             buttonSua = new Button();
             buttonXoa = new Button();
             buttonKhoiTao = new Button();
-            groupBoxKhachHang1.SuspendLayout();
             groupBoxKhachHang2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)datagridViewKhachHang).BeginInit();
             SuspendLayout();
             // 
             // groupBoxKhachHang1
             // 
-            groupBoxKhachHang1.Controls.Add(textBox6);
-            groupBoxKhachHang1.Controls.Add(textBox5);
-            groupBoxKhachHang1.Controls.Add(textBox4);
-            groupBoxKhachHang1.Controls.Add(textBox3);
-            groupBoxKhachHang1.Controls.Add(textBox2);
-            groupBoxKhachHang1.Controls.Add(textBox1);
             groupBoxKhachHang1.Location = new Point(0, 42);
             groupBoxKhachHang1.Name = "groupBoxKhachHang1";
             groupBoxKhachHang1.Size = new Size(691, 133);
             groupBoxKhachHang1.TabIndex = 0;
             groupBoxKhachHang1.TabStop = false;
             groupBoxKhachHang1.Text = "groupBoxKhachHang1";
-            // 
-            // textBox6
-            // 
-            textBox6.Location = new Point(595, 47);
-            textBox6.Name = "textBox6";
-            textBox6.Size = new Size(37, 27);
-            textBox6.TabIndex = 5;
-            // 
-            // textBox5
-            // 
-            textBox5.Location = new Point(467, 26);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(94, 27);
-            textBox5.TabIndex = 4;
-            // 
-            // textBox4
-            // 
-            textBox4.Location = new Point(406, 47);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(37, 27);
-            textBox4.TabIndex = 3;
-            // 
-            // textBox3
-            // 
-            textBox3.Location = new Point(290, 47);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(37, 27);
-            textBox3.TabIndex = 2;
-            // 
-            // textBox2
-            // 
-            textBox2.Location = new Point(135, 37);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(37, 27);
-            textBox2.TabIndex = 1;
-            // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(50, 26);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(44, 27);
-            textBox1.TabIndex = 0;
             // 
             // groupBoxKhachHang2
             // 
@@ -131,7 +76,6 @@
             buttonTimKiem.TabIndex = 2;
             buttonTimKiem.Text = "Tìm kiếm";
             buttonTimKiem.UseVisualStyleBackColor = true;
-            buttonTimKiem.Click += buttonTimKiem_Click;
             // 
             // buttonThem
             // 
@@ -184,8 +128,6 @@
             Name = "FormKhachHang";
             Text = "FormKhachHang";
             Load += FormKhachHang_Load;
-            groupBoxKhachHang1.ResumeLayout(false);
-            groupBoxKhachHang1.PerformLayout();
             groupBoxKhachHang2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)datagridViewKhachHang).EndInit();
             ResumeLayout(false);
@@ -201,11 +143,5 @@
         private Button buttonSua;
         private Button buttonXoa;
         private Button buttonKhoiTao;
-        private TextBox textBox6;
-        private TextBox textBox5;
-        private TextBox textBox4;
-        private TextBox textBox3;
-        private TextBox textBox2;
-        private TextBox textBox1;
     }
 }

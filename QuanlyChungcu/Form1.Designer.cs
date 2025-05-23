@@ -32,8 +32,6 @@ namespace QuanlyChungcu
         //DataConnect.DataConnect conn;
         private void InitializeComponent()
         {
-            //conn = new DataConnect.DataConnect();
-            
             components = new System.ComponentModel.Container();
             panel1 = new Panel();
             panel3 = new Panel();
@@ -65,6 +63,13 @@ namespace QuanlyChungcu
             PhieuDien = new Button();
             panel13 = new Panel();
             PhieuNuoc = new Button();
+            menuHoaDon = new FlowLayoutPanel();
+            panel14 = new Panel();
+            qlHoaDon = new Button();
+            panel15 = new Panel();
+            HoaDonTPhong = new Button();
+            panel16 = new Panel();
+            HoaDonDV = new Button();
             menuBaoCao = new FlowLayoutPanel();
             panel18 = new Panel();
             BaoCao = new Button();
@@ -74,13 +79,6 @@ namespace QuanlyChungcu
             ThongKe = new Button();
             panel17 = new Panel();
             inBaoCao = new Button();
-            menuHoaDon = new FlowLayoutPanel();
-            panel14 = new Panel();
-            qlHoaDon = new Button();
-            panel15 = new Panel();
-            HoaDonTPhong = new Button();
-            panel16 = new Panel();
-            HoaDonDV = new Button();
             timer2 = new System.Windows.Forms.Timer(components);
             timer3 = new System.Windows.Forms.Timer(components);
             timer4 = new System.Windows.Forms.Timer(components);
@@ -101,15 +99,15 @@ namespace QuanlyChungcu
             panel11.SuspendLayout();
             panel12.SuspendLayout();
             panel13.SuspendLayout();
+            menuHoaDon.SuspendLayout();
+            panel14.SuspendLayout();
+            panel15.SuspendLayout();
+            panel16.SuspendLayout();
             menuBaoCao.SuspendLayout();
             panel18.SuspendLayout();
             panel19.SuspendLayout();
             panel20.SuspendLayout();
             panel17.SuspendLayout();
-            menuHoaDon.SuspendLayout();
-            panel14.SuspendLayout();
-            panel15.SuspendLayout();
-            panel16.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -117,7 +115,7 @@ namespace QuanlyChungcu
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(903, 54);
+            panel1.Size = new Size(1035, 54);
             panel1.TabIndex = 0;
             // 
             // panel3
@@ -330,6 +328,7 @@ namespace QuanlyChungcu
             DichVu.TabIndex = 3;
             DichVu.Text = "Dịch Vụ";
             DichVu.UseVisualStyleBackColor = true;
+            DichVu.Click += DichVu_Click;
             // 
             // panel11
             // 
@@ -347,6 +346,7 @@ namespace QuanlyChungcu
             PhieuDichVu.TabIndex = 3;
             PhieuDichVu.Text = "Phiếu dịch vụ";
             PhieuDichVu.UseVisualStyleBackColor = true;
+            PhieuDichVu.Click += PhieuDichVu_Click;
             // 
             // panel12
             // 
@@ -364,6 +364,7 @@ namespace QuanlyChungcu
             PhieuDien.TabIndex = 3;
             PhieuDien.Text = "Phiếu điện";
             PhieuDien.UseVisualStyleBackColor = true;
+            PhieuDien.Click += PhieuDien_Click;
             // 
             // panel13
             // 
@@ -381,6 +382,69 @@ namespace QuanlyChungcu
             PhieuNuoc.TabIndex = 3;
             PhieuNuoc.Text = "Phiếu nước";
             PhieuNuoc.UseVisualStyleBackColor = true;
+            PhieuNuoc.Click += PhieuNuoc_Click;
+            // 
+            // menuHoaDon
+            // 
+            menuHoaDon.Controls.Add(panel14);
+            menuHoaDon.Controls.Add(panel15);
+            menuHoaDon.Controls.Add(panel16);
+            menuHoaDon.Location = new Point(3, 228);
+            menuHoaDon.Name = "menuHoaDon";
+            menuHoaDon.Size = new Size(204, 69);
+            menuHoaDon.TabIndex = 9;
+            // 
+            // panel14
+            // 
+            panel14.Controls.Add(qlHoaDon);
+            panel14.Location = new Point(3, 3);
+            panel14.Name = "panel14";
+            panel14.Size = new Size(198, 63);
+            panel14.TabIndex = 2;
+            // 
+            // qlHoaDon
+            // 
+            qlHoaDon.Location = new Point(15, 14);
+            qlHoaDon.Name = "qlHoaDon";
+            qlHoaDon.Size = new Size(167, 29);
+            qlHoaDon.TabIndex = 3;
+            qlHoaDon.Text = "Quản lý hóa đơn";
+            qlHoaDon.UseVisualStyleBackColor = true;
+            qlHoaDon.Click += qlHoaDon_Click;
+            // 
+            // panel15
+            // 
+            panel15.Controls.Add(HoaDonTPhong);
+            panel15.Location = new Point(3, 72);
+            panel15.Name = "panel15";
+            panel15.Size = new Size(198, 63);
+            panel15.TabIndex = 3;
+            // 
+            // HoaDonTPhong
+            // 
+            HoaDonTPhong.Location = new Point(21, 16);
+            HoaDonTPhong.Name = "HoaDonTPhong";
+            HoaDonTPhong.Size = new Size(161, 29);
+            HoaDonTPhong.TabIndex = 3;
+            HoaDonTPhong.Text = "Hóa đơn thuê phòng";
+            HoaDonTPhong.UseVisualStyleBackColor = true;
+            // 
+            // panel16
+            // 
+            panel16.Controls.Add(HoaDonDV);
+            panel16.Location = new Point(3, 141);
+            panel16.Name = "panel16";
+            panel16.Size = new Size(198, 63);
+            panel16.TabIndex = 4;
+            // 
+            // HoaDonDV
+            // 
+            HoaDonDV.Location = new Point(21, 16);
+            HoaDonDV.Name = "HoaDonDV";
+            HoaDonDV.Size = new Size(161, 29);
+            HoaDonDV.TabIndex = 3;
+            HoaDonDV.Text = "Hóa đơn dịch vụ";
+            HoaDonDV.UseVisualStyleBackColor = true;
             // 
             // menuBaoCao
             // 
@@ -462,68 +526,6 @@ namespace QuanlyChungcu
             inBaoCao.Text = "In báo cáo";
             inBaoCao.UseVisualStyleBackColor = true;
             // 
-            // menuHoaDon
-            // 
-            menuHoaDon.Controls.Add(panel14);
-            menuHoaDon.Controls.Add(panel15);
-            menuHoaDon.Controls.Add(panel16);
-            menuHoaDon.Location = new Point(3, 228);
-            menuHoaDon.Name = "menuHoaDon";
-            menuHoaDon.Size = new Size(204, 69);
-            menuHoaDon.TabIndex = 9;
-            // 
-            // panel14
-            // 
-            panel14.Controls.Add(qlHoaDon);
-            panel14.Location = new Point(3, 3);
-            panel14.Name = "panel14";
-            panel14.Size = new Size(198, 63);
-            panel14.TabIndex = 2;
-            // 
-            // qlHoaDon
-            // 
-            qlHoaDon.Location = new Point(15, 14);
-            qlHoaDon.Name = "qlHoaDon";
-            qlHoaDon.Size = new Size(167, 29);
-            qlHoaDon.TabIndex = 3;
-            qlHoaDon.Text = "Quản lý hóa đơn";
-            qlHoaDon.UseVisualStyleBackColor = true;
-            qlHoaDon.Click += qlHoaDon_Click;
-            // 
-            // panel15
-            // 
-            panel15.Controls.Add(HoaDonTPhong);
-            panel15.Location = new Point(3, 72);
-            panel15.Name = "panel15";
-            panel15.Size = new Size(198, 63);
-            panel15.TabIndex = 3;
-            // 
-            // HoaDonTPhong
-            // 
-            HoaDonTPhong.Location = new Point(21, 16);
-            HoaDonTPhong.Name = "HoaDonTPhong";
-            HoaDonTPhong.Size = new Size(161, 29);
-            HoaDonTPhong.TabIndex = 3;
-            HoaDonTPhong.Text = "Hóa đơn thuê phòng";
-            HoaDonTPhong.UseVisualStyleBackColor = true;
-            // 
-            // panel16
-            // 
-            panel16.Controls.Add(HoaDonDV);
-            panel16.Location = new Point(3, 141);
-            panel16.Name = "panel16";
-            panel16.Size = new Size(198, 63);
-            panel16.TabIndex = 4;
-            // 
-            // HoaDonDV
-            // 
-            HoaDonDV.Location = new Point(21, 16);
-            HoaDonDV.Name = "HoaDonDV";
-            HoaDonDV.Size = new Size(161, 29);
-            HoaDonDV.TabIndex = 3;
-            HoaDonDV.Text = "Hóa đơn dịch vụ";
-            HoaDonDV.UseVisualStyleBackColor = true;
-            // 
             // timer2
             // 
             timer2.Interval = 5;
@@ -548,7 +550,7 @@ namespace QuanlyChungcu
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(903, 729);
+            ClientSize = new Size(1035, 729);
             Controls.Add(flowLayoutPanel1);
             Controls.Add(panel1);
             IsMdiContainer = true;
@@ -570,15 +572,15 @@ namespace QuanlyChungcu
             panel11.ResumeLayout(false);
             panel12.ResumeLayout(false);
             panel13.ResumeLayout(false);
+            menuHoaDon.ResumeLayout(false);
+            panel14.ResumeLayout(false);
+            panel15.ResumeLayout(false);
+            panel16.ResumeLayout(false);
             menuBaoCao.ResumeLayout(false);
             panel18.ResumeLayout(false);
             panel19.ResumeLayout(false);
             panel20.ResumeLayout(false);
             panel17.ResumeLayout(false);
-            menuHoaDon.ResumeLayout(false);
-            panel14.ResumeLayout(false);
-            panel15.ResumeLayout(false);
-            panel16.ResumeLayout(false);
             ResumeLayout(false);
         }
 

@@ -22,6 +22,10 @@ namespace QuanlyChungcu
         FormKhachHang formKH = null;
         FormHopDong formHopDong = null;
         FormPhong formPhong = null;
+        FormDichvu formDichVu = null;
+        FormPhieusudungdichvu formPSDDV = null;
+        FormPhieudien formPhieudien = null;
+        FormPhieuNuoc formPhieuNuoc = null;
 
         //DataConnect connect;
 
@@ -227,6 +231,70 @@ namespace QuanlyChungcu
         private void flowLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void DichVu_Click(object sender, EventArgs e)
+        {
+            if (formDichVu == null)
+            {
+                formDichVu = new FormDichvu();
+                formDichVu.MdiParent = this;
+                formDichVu.Dock = DockStyle.Fill;
+                formDichVu.FormClosed += FormDichVu_FormClosed;
+                formDichVu.Show();
+            }
+        }
+        private void FormDichVu_FormClosed(object? sender, FormClosedEventArgs e)
+        {
+            formDichVu = null;
+        }
+
+        private void PhieuDichVu_Click(object sender, EventArgs e)
+        {
+            if (formPSDDV == null)
+            {
+                formPSDDV = new FormPhieusudungdichvu();
+                formPSDDV.MdiParent = this;
+                formPSDDV.Dock = DockStyle.Fill;
+                formPSDDV.FormClosed += FormPhieusudungdichvu_FormClosed;
+                formPSDDV.Show();
+            }
+        }
+        private void FormPhieusudungdichvu_FormClosed(object? sender, FormClosedEventArgs e)
+        {
+            formPSDDV = null;
+        }
+
+        private void PhieuDien_Click(object sender, EventArgs e)
+        {
+            if (formPhieudien == null)
+            {
+                formPhieudien = new FormPhieudien();
+                formPhieudien.MdiParent = this;
+                formPhieudien.Dock = DockStyle.Fill;
+                formPhieudien.FormClosed += FormPhieudien_FormClosed;
+                formPhieudien.Show();
+            }
+        }
+        private void FormPhieudien_FormClosed(object? sender, FormClosedEventArgs e)
+        {
+            formPhieudien = null;
+        }
+
+        private void PhieuNuoc_Click(object sender, EventArgs e)
+        {
+            if (formPhieuNuoc == null)
+            {
+                formPhieuNuoc = new FormPhieuNuoc();
+                formPhieuNuoc.MdiParent = this;
+                formPhieuNuoc.Dock = DockStyle.Fill;
+                formPhieuNuoc.FormClosed += FormPhieuNuoc_FormClosed;
+                formPhieuNuoc.Show();
+            }
+        }
+        private void FormPhieuNuoc_FormClosed(object? sender, FormClosedEventArgs e)
+        {
+            formPhieuNuoc = null;
         }
     }
 }
