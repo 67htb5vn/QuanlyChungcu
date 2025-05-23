@@ -91,12 +91,12 @@ namespace QuanlyChungcu
             {
                 if (!double.TryParse(textBoxDongia.Text.Trim(), out donGia))
                 {
-                    MessageBox.Show("Đơn giá phải là một số hợp lệ.", "Lỗi định dạng", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Lỗi: Đơn giá phải là một số hợp lệ.", "Lỗi định dạng", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
                 if (donGia < 0)
                 {
-                    MessageBox.Show("Đơn giá không được âm.", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Lỗi: Đơn giá không được âm.", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
             }
@@ -112,19 +112,19 @@ namespace QuanlyChungcu
             string tenDV = textBoxTenDv.Text.Trim();
             if (string.IsNullOrWhiteSpace(maDV) || string.IsNullOrWhiteSpace(tenDV))
             {
-                MessageBox.Show("Mã dịch vụ và tên dịch vụ không được để trống.", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Lỗi: Mã dịch vụ và Tên dịch vụ không được để trống.", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
             if (!double.TryParse(textBoxDongia.Text.Trim(), out double donGia))
             {
-                MessageBox.Show("Đơn giá phải là một số hợp lệ.", "Lỗi định dạng", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Lỗi: Đơn giá phải là một số hợp lệ.", "Lỗi định dạng", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
             if (donGia < 0)
             {
-                MessageBox.Show("Đơn giá không được âm.", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Lỗi: Đơn giá không được âm.", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             try
@@ -135,7 +135,7 @@ namespace QuanlyChungcu
             }
             catch (SqlException ex) when (ex.Number == 2627)
             {
-                MessageBox.Show("Mã dịch vụ đã tồn tại. Vui lòng nhập mã khác.", "Lỗi trùng khóa chính", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Lỗi: Mã dịch vụ đã tồn tại. Vui lòng nhập mã khác.", "Lỗi trùng khóa chính", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             
         }
@@ -145,7 +145,7 @@ namespace QuanlyChungcu
             string maDV = textBoxMaDv.Text.Trim();
             if (string.IsNullOrWhiteSpace(maDV))
             {
-                MessageBox.Show("Mã dịch vụ không được để trống.", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Lỗi: Mã dịch vụ không được để trống.", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             XoaDV(maDV);
@@ -159,19 +159,19 @@ namespace QuanlyChungcu
             string tenDV = textBoxTenDv.Text.Trim();
             if (string.IsNullOrWhiteSpace(maDV) || string.IsNullOrWhiteSpace(tenDV))
             {
-                MessageBox.Show("Mã dịch vụ và tên dịch vụ không được để trống.", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Lỗi: Mã dịch vụ và tên dịch vụ không được để trống.", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
             if (!double.TryParse(textBoxDongia.Text.Trim(), out double donGia))
             {
-                MessageBox.Show("Đơn giá phải là một số hợp lệ.", "Lỗi định dạng", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Lỗi: Đơn giá phải là một số hợp lệ.", "Lỗi định dạng", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
             if (donGia < 0)
             {
-                MessageBox.Show("Đơn giá không được âm.", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Lỗi: Đơn giá không được âm.", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             SuaDV(maDV, tenDV, donGia);
