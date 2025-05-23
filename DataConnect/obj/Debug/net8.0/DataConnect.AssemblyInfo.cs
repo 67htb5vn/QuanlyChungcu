@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("DataConnect")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+40044081d17042f3fec553b19b0fe8efab0edc55")]
 [assembly: System.Reflection.AssemblyProductAttribute("DataConnect")]
 [assembly: System.Reflection.AssemblyTitleAttribute("DataConnect")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
