@@ -100,18 +100,18 @@ namespace QuanlyChungcu
             string maHDDV = textBoxMaHddv.Text.Trim();
             double tongTien = 0;
             int soDV = 0;
-            DateTime thangDV = new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1);
+            DateTime thangSD = new DateTime(DateTime.Today.Year, DateTime.Today.Month, 1);
 
             if (!string.IsNullOrWhiteSpace(textBoxTongtien.Text.Trim()))
             {
                 if (!double.TryParse(textBoxTongtien.Text.Trim(), out tongTien))
                 {
-                    MessageBox.Show("Tổng tiền DV phải là một số hợp lệ.", "Lỗi định dạng", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Lỗi: Tổng tiền dịch vụ phải là một số hợp lệ.", "Lỗi định dạng", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
                 if (tongTien < 0)
                 {
-                    MessageBox.Show("Tổng tiền DV không được âm.", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Lỗi: Tổng tiền dịch vụ không được âm.", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
             }
@@ -119,25 +119,30 @@ namespace QuanlyChungcu
             {
                 if (!int.TryParse(textBoxSoDV.Text.Trim(), out soDV))
                 {
-                    MessageBox.Show("Số dịch vụ phải là một số nguyên hợp lệ.", "Lỗi định dạng", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Lỗi: Số dịch vụ phải là một số nguyên hợp lệ.", "Lỗi định dạng", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
                 if (soDV < 0)
                 {
-                    MessageBox.Show("Số dịch vụ không được âm.", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Lỗi: Số dịch vụ không được âm.", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
             }
             if (!string.IsNullOrWhiteSpace(textBoxThangSD.Text.Trim()))
             {
-                if (!DateTime.TryParseExact(textBoxThangSD.Text.Trim(), "MM/yyyy", System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, out thangDV))
+                if (!DateTime.TryParseExact(textBoxThangSD.Text.Trim(), "MM/yyyy", System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, out thangSD))
                 {
-                    MessageBox.Show("Tháng sử dụng phải có định dạng MM/yyyy.", "Lỗi định dạng", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Lỗi: Tháng sử dụng phải có định dạng MM/yyyy.", "Lỗi định dạng", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-                thangDV = new DateTime(thangDV.Year, thangDV.Month, 1); 
+                if (thangSD.Month < 1 || thangSD.Month > 12)
+                {
+                    MessageBox.Show("Lỗi: Tháng phải nằm trong khoảng từ 1 đến 12.", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                thangSD = new DateTime(thangSD.Year, thangSD.Month, 1);
             }
-            DataTable searchResults = TimkiemPSDDV(maPSDDV, tongTien, thangDV, soDV, maHD, maHDDV);
+            DataTable searchResults = TimkiemPSDDV(maPSDDV, tongTien, thangSD, soDV, maHD, maHDDV);
             loadDataPSDDV(searchResults);
             ClearTextBoxes();
             conn.Close();
@@ -151,33 +156,38 @@ namespace QuanlyChungcu
 
             if (string.IsNullOrWhiteSpace(maPSDDV) || string.IsNullOrWhiteSpace(maHD) || string.IsNullOrWhiteSpace(maHDDV))
             {
-                MessageBox.Show("Mã phiếu SDDV, mã hợp đồng và mã hóa đơn DV không được để trống.", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Lỗi: Mã phiếu sử dụng dịch vụ, Mã hợp đồng và Mã hóa đơn dịch vụ không được để trống.", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             if (!double.TryParse(textBoxTongtien.Text.Trim(), out double tongTien))
             {
-                MessageBox.Show("Tổng tiền DV phải là một số hợp lệ.", "Lỗi định dạng", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Lỗi: Tổng tiền dịch vụ phải là một số hợp lệ.", "Lỗi định dạng", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             if (tongTien < 0)
             {
-                MessageBox.Show("Tổng tiền DV không được âm.", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Lỗi: Tổng tiền dịch vụ không được âm.", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             if (!DateTime.TryParseExact(textBoxThangSD.Text.Trim(), "MM/yyyy", System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, out DateTime thangSD))
             {
-                MessageBox.Show("Tháng sử dụng phải có định dạng MM/yyyy.", "Lỗi định dạng", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Lỗi: Tháng sử dụng phải có định dạng MM/yyyy.", "Lỗi định dạng", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (thangSD.Month < 1 || thangSD.Month > 12)
+            {
+                MessageBox.Show("Lỗi: Tháng phải nằm trong khoảng từ 1 đến 12.", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             thangSD = new DateTime(thangSD.Year, thangSD.Month, 1);
             if (!int.TryParse(textBoxSoDV.Text.Trim(), out int soDV))
             {
-                MessageBox.Show("Số dịch vụ phải là một số nguyên hợp lệ.", "Lỗi định dạng", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Lỗi: Số dịch vụ phải là một số nguyên hợp lệ.", "Lỗi định dạng", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             if (soDV < 0)
             {
-                MessageBox.Show("Số dịch vụ không được âm.", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Lỗi: Số dịch vụ không được âm.", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -189,7 +199,7 @@ namespace QuanlyChungcu
             }
             catch (SqlException ex) when (ex.Number == 2627)
             {
-                MessageBox.Show("Mã phiếu SDDV đã tồn tại. Vui lòng nhập mã khác.", "Lỗi trùng khóa chính", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Lỗi: Mã phiếu sử dụng dịch vụ đã tồn tại. Vui lòng nhập mã khác.", "Lỗi trùng khóa chính", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -201,33 +211,38 @@ namespace QuanlyChungcu
 
             if (string.IsNullOrWhiteSpace(maPSDDV) || string.IsNullOrWhiteSpace(maHD) || string.IsNullOrWhiteSpace(maHDDV))
             {
-                MessageBox.Show("Mã phiếu SDDV, mã hợp đồng và mã hóa đơn DV không được để trống.", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Lỗi: Mã phiếu sử dụng dịch vụ, Mã hợp đồng và Mã hóa đơn dịch vụ không được để trống.", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             if (!double.TryParse(textBoxTongtien.Text.Trim(), out double tongTien))
             {
-                MessageBox.Show("Tổng tiền DV phải là một số hợp lệ.", "Lỗi định dạng", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Lỗi: Tổng tiền dịch vụ phải là một số hợp lệ.", "Lỗi định dạng", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             if (tongTien < 0)
             {
-                MessageBox.Show("Tổng tiền DV không được âm.", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Lỗi: Tổng tiền dịch vụ không được âm.", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             if (!DateTime.TryParseExact(textBoxThangSD.Text.Trim(), "MM/yyyy", System.Globalization.CultureInfo.InvariantCulture, System.Globalization.DateTimeStyles.None, out DateTime thangSD))
             {
-                MessageBox.Show("Tháng sử dụng phải có định dạng MM/yyyy.", "Lỗi định dạng", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Lỗi: Tháng sử dụng phải có định dạng MM/yyyy.", "Lỗi định dạng", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (thangSD.Month < 1 || thangSD.Month > 12)
+            {
+                MessageBox.Show("Lỗi: Tháng phải nằm trong khoảng từ 1 đến 12.", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             thangSD = new DateTime(thangSD.Year, thangSD.Month, 1);
             if (!int.TryParse(textBoxSoDV.Text.Trim(), out int soDV))
             {
-                MessageBox.Show("Số dịch vụ phải là một số nguyên hợp lệ.", "Lỗi định dạng", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Lỗi: Số dịch vụ phải là một số nguyên hợp lệ.", "Lỗi định dạng", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             if (soDV < 0)
             {
-                MessageBox.Show("Số dịch vụ không được âm.", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Lỗi: Số dịch vụ không được âm.", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             SuaPSDDV(maPSDDV, tongTien, thangSD, soDV, maHD, maHDDV);
@@ -241,7 +256,7 @@ namespace QuanlyChungcu
 
             if (string.IsNullOrWhiteSpace(maPSDDV))
             {
-                MessageBox.Show("Mã phiếu SDDV không được để trống.", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Lỗi: Mã phiếu sử dụng dịch vụ không được để trống.", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             XoaPSDDV(maPSDDV);

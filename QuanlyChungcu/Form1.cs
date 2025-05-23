@@ -243,6 +243,10 @@ namespace QuanlyChungcu
                 formDichVu.FormClosed += FormDichVu_FormClosed;
                 formDichVu.Show();
             }
+            else                                  //nếu form đã mở thì kích hoạt, đưa nó lên đầu
+            {
+                formDichVu.Activate();                //nếu form đã show, thì gọi active mới đưa lên trước nếu form bị ẩn
+            }
         }
         private void FormDichVu_FormClosed(object? sender, FormClosedEventArgs e)
         {
@@ -258,6 +262,10 @@ namespace QuanlyChungcu
                 formPSDDV.Dock = DockStyle.Fill;
                 formPSDDV.FormClosed += FormPhieusudungdichvu_FormClosed;
                 formPSDDV.Show();
+            }
+            else                                  //nếu form đã mở thì kích hoạt, đưa nó lên đầu
+            {
+                formPSDDV.Activate();                //nếu form đã show, thì gọi active mới đưa lên trước nếu form bị ẩn
             }
         }
         private void FormPhieusudungdichvu_FormClosed(object? sender, FormClosedEventArgs e)
@@ -275,6 +283,10 @@ namespace QuanlyChungcu
                 formPhieudien.FormClosed += FormPhieudien_FormClosed;
                 formPhieudien.Show();
             }
+            else                                  //nếu form đã mở thì kích hoạt, đưa nó lên đầu
+            {
+                formPhieudien.Activate();                //nếu form đã show, thì gọi active mới đưa lên trước nếu form bị ẩn
+            }
         }
         private void FormPhieudien_FormClosed(object? sender, FormClosedEventArgs e)
         {
@@ -290,6 +302,10 @@ namespace QuanlyChungcu
                 formPhieuNuoc.Dock = DockStyle.Fill;
                 formPhieuNuoc.FormClosed += FormPhieuNuoc_FormClosed;
                 formPhieuNuoc.Show();
+            }
+            else                                  //nếu form đã mở thì kích hoạt, đưa nó lên đầu
+            {
+                formPhieuNuoc.Activate();                //nếu form đã show, thì gọi active mới đưa lên trước nếu form bị ẩn
             }
         }
         private void FormPhieuNuoc_FormClosed(object? sender, FormClosedEventArgs e)
