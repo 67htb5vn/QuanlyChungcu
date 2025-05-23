@@ -10,3 +10,15 @@ D:\Code\C#\QuanlyChungcu\DataConnect\obj\Debug\net8.0\DataConnect.dll
 D:\Code\C#\QuanlyChungcu\DataConnect\obj\Debug\net8.0\refint\DataConnect.dll
 D:\Code\C#\QuanlyChungcu\DataConnect\obj\Debug\net8.0\DataConnect.pdb
 D:\Code\C#\QuanlyChungcu\DataConnect\obj\Debug\net8.0\ref\DataConnect.dll
+D:\học tập\năm 3\NNLT2\QuanlyChungcu_12_05\QuanlyChungcu\DataConnect\bin\Debug\net8.0\DataConnect.deps.json
+D:\học tập\năm 3\NNLT2\QuanlyChungcu_12_05\QuanlyChungcu\DataConnect\bin\Debug\net8.0\DataConnect.dll
+D:\học tập\năm 3\NNLT2\QuanlyChungcu_12_05\QuanlyChungcu\DataConnect\bin\Debug\net8.0\DataConnect.pdb
+D:\học tập\năm 3\NNLT2\QuanlyChungcu_12_05\QuanlyChungcu\DataConnect\obj\Debug\net8.0\DataConnect.csproj.AssemblyReference.cache
+D:\học tập\năm 3\NNLT2\QuanlyChungcu_12_05\QuanlyChungcu\DataConnect\obj\Debug\net8.0\DataConnect.GeneratedMSBuildEditorConfig.editorconfig
+D:\học tập\năm 3\NNLT2\QuanlyChungcu_12_05\QuanlyChungcu\DataConnect\obj\Debug\net8.0\DataConnect.AssemblyInfoInputs.cache
+D:\học tập\năm 3\NNLT2\QuanlyChungcu_12_05\QuanlyChungcu\DataConnect\obj\Debug\net8.0\DataConnect.AssemblyInfo.cs
+D:\học tập\năm 3\NNLT2\QuanlyChungcu_12_05\QuanlyChungcu\DataConnect\obj\Debug\net8.0\DataConnect.csproj.CoreCompileInputs.cache
+D:\học tập\năm 3\NNLT2\QuanlyChungcu_12_05\QuanlyChungcu\DataConnect\obj\Debug\net8.0\DataConnect.dll
+D:\học tập\năm 3\NNLT2\QuanlyChungcu_12_05\QuanlyChungcu\DataConnect\obj\Debug\net8.0\refint\DataConnect.dll
+D:\học tập\năm 3\NNLT2\QuanlyChungcu_12_05\QuanlyChungcu\DataConnect\obj\Debug\net8.0\DataConnect.pdb
+D:\học tập\năm 3\NNLT2\QuanlyChungcu_12_05\QuanlyChungcu\DataConnect\obj\Debug\net8.0\ref\DataConnect.dll
