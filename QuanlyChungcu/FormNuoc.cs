@@ -116,7 +116,7 @@ namespace QuanlyChungcu
             cmd.ExecuteNonQuery();
             conn.Close();
         }
-        static DataTable TimkiemPSDNuoc(string maPSDNuoc, int csCu, int csMoi, double donGia, DateTime thangSD, double thanhTien, string maHd, string maHddv)
+        static DataTable TimkiemPSDNuoc(string maPSDNuoc, int csCu, int csMoi, double donGia, DateTime thangSD, string maHd, string maHddv)
         {
             conn.Open();
             SqlCommand cmd = new SqlCommand("dbo.TimkiemPSDNuoc", conn);
@@ -125,7 +125,6 @@ namespace QuanlyChungcu
             cmd.Parameters.Add("@CSCu", SqlDbType.Int).Value = csCu <= 0 ? DBNull.Value : csCu;
             cmd.Parameters.Add("@CSMoi", SqlDbType.Int).Value = csMoi <= 0 ? DBNull.Value : csMoi;
             cmd.Parameters.Add("@DonGia", SqlDbType.Float).Value = donGia <= 0 ? DBNull.Value : donGia;
-            cmd.Parameters.Add("@ThanhTien", SqlDbType.Float).Value = thanhTien <= 0 ? DBNull.Value : thanhTien;
             cmd.Parameters.Add("@ThangSD", SqlDbType.DateTime).Value = thangSD == new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1) ? DBNull.Value : thangSD;
             cmd.Parameters.Add("@MaHopDong", SqlDbType.NVarChar, 50).Value = string.IsNullOrWhiteSpace(maHd) ? DBNull.Value : maHd;
             cmd.Parameters.Add("@MaHoaDonDV", SqlDbType.NVarChar, 50).Value = string.IsNullOrWhiteSpace(maHddv) ? DBNull.Value : maHddv;
@@ -194,20 +193,8 @@ namespace QuanlyChungcu
                 }
                 thangSD = new DateTime(thangSD.Year, thangSD.Month, 1); 
             }
-            if (!string.IsNullOrWhiteSpace(textBoxthanhtien.Text.Trim()))
-            {
-                if (!double.TryParse(textBoxthanhtien.Text.Trim(), out thanhTien))
-                {
-                    MessageBox.Show("Thành tiền phải là một số hợp lệ.", "Lỗi định dạng", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-                if (thanhTien < 0)
-                {
-                    MessageBox.Show("Thành tiền không được âm.", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-            }
-            DataTable searchResults = TimkiemPSDNuoc(maPSDNuoc, csCu, csMoi, donGia, thangSD, thanhTien, maHd, maHddv);
+            
+            DataTable searchResults = TimkiemPSDNuoc(maPSDNuoc, csCu, csMoi, donGia, thangSD, maHd, maHddv);
             loadDataPhieunuoc(searchResults);
             ClearTextBoxes();
             conn.Close();
@@ -265,11 +252,6 @@ namespace QuanlyChungcu
                 return;
             }
             thangSD = new DateTime(thangSD.Year, thangSD.Month, 1);
-            if (!string.IsNullOrWhiteSpace(textBoxthanhtien.Text.Trim()))
-            {
-                MessageBox.Show("Thành tiền được tính tự động và không thể chỉnh sửa.", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
 
             try
             {
@@ -334,11 +316,6 @@ namespace QuanlyChungcu
                 return;
             }
             thangSD = new DateTime(thangSD.Year, thangSD.Month, 1);
-            if (!string.IsNullOrWhiteSpace(textBoxthanhtien.Text.Trim()))
-            {
-                MessageBox.Show("Thành tiền được tính tự động và không thể chỉnh sửa.", "Lỗi nhập liệu", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
             SuaPSDNuoc(maPSDNuoc, csCu, csMoi, donGia, thangSD, maHd, maHddv);
             loadDataPhieunuoc();
             ClearTextBoxes();

@@ -100,6 +100,7 @@
             // 
             textBoxthanhtien.Location = new Point(487, 89);
             textBoxthanhtien.Name = "textBoxthanhtien";
+            textBoxthanhtien.ReadOnly = true;
             textBoxthanhtien.Size = new Size(175, 27);
             textBoxthanhtien.TabIndex = 13;
             // 
