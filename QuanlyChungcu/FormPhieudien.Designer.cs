@@ -100,6 +100,7 @@
             // 
             textBoxthanhtien.Location = new Point(518, 83);
             textBoxthanhtien.Name = "textBoxthanhtien";
+            textBoxthanhtien.ReadOnly = true;
             textBoxthanhtien.Size = new Size(181, 27);
             textBoxthanhtien.TabIndex = 13;
             // 
@@ -293,7 +294,7 @@
             Controls.Add(buttonTimkiem);
             Controls.Add(groupBoxPhieudien1);
             Name = "FormPhieudien";
-            Text = " ";
+            Text = " FormPhieuDien";
             Load += FormPhieudien_Load;
             groupBoxPhieudien1.ResumeLayout(false);
             groupBoxPhieudien1.PerformLayout();
